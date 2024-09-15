@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importoidaan reitityskomponentit
 import Balance from './pages/Balance';
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Authentication from "./pages/Authentication";
 
 
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route path="/register" element={<Authentication />} /> 
           <Route path="/logout" element={<Balance navigateToRoute='/'/>} />  { /* etstaukseen */}
         </Routes>
+        <Footer />
       </Router>
 
     </>

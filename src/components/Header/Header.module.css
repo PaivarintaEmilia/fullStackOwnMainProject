@@ -4,14 +4,12 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 3px 5px;
+    padding: 15px 10px;
 }
 
 
 .logo {
-    padding: 5px;
     width: 8%;
-
 }
 
 .btnContainer {
@@ -20,11 +18,7 @@
     gap: 5px;
 }
 
-/* Test to test out hiding register when in register screen */
 
-.registerBtn {
-    /**/
-}
 
 .loginBtn {
     width: 12rem;

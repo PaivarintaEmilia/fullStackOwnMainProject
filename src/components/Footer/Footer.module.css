@@ -1,0 +1,36 @@
+.FooterContainer {
+    padding: 30px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.logoFooter {
+
+}
+
+.navigationContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    padding-right: 50px;
+}
+
+.linkContainer {
+
+}
+
+.linkContainer h4 {
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.linkContainer a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: 200;
+    font-size: 0.9rem;
+}
