@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "../../common/Img";
 import ButtonComponent from "../../common/Button";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 // Styling
 import styles from './Header.module.css';
 
@@ -11,6 +11,7 @@ import styles from './Header.module.css';
 const Header: React.FC = () => {
 
     const navigate = useNavigate(); // react-router-dom hook navigointiin
+    const location = useLocation(); // Hae nykyinen sijainti
 
     const navigateLogin = () => {
         navigate('/login'); 
@@ -35,6 +36,7 @@ const Header: React.FC = () => {
                 id="nav-container-img-id" // Mieti tarvitaanko tätä oikeastaan ollenkaan.
             />
             <div className={styles.btnContainer}>
+                {location.pathname !== '/register' &&
                 <ButtonComponent
                     name="register"
                     type="button"
@@ -43,13 +45,14 @@ const Header: React.FC = () => {
                     id="global-btn"
                     onClick={navigateLogin}
                     text="Register"
-                />
+                /> 
+                }
                 <ButtonComponent
                     name="Login"
                     type="button"
                     value="" // tarvitaanko navContainerissa?
                     className={styles.loginBtn}
-                    id="global-btn"
+                    id=""
                     onClick={navigateRegister}
                     text="Login"
                 />                
@@ -58,7 +61,7 @@ const Header: React.FC = () => {
                     type="button"
                     value="" // tarvitaanko navContainerissa?
                     className={styles.logOutBtn}
-                    id="global-btn"
+                    id="logOutHidden"
                     onClick={navigateLogout}
                     text="Logout"
                 />

@@ -1,0 +1,50 @@
+.headerContainer {
+    border: 3px solid white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    padding: 5px;
+    width: 8%;
+
+}
+
+.btnContainer {
+    border: 1px solid white;
+    display: flex;
+    gap: 5px;
+}
+
+/* Test to test out hiding register when in register screen */
+
+.registerBtn {
+    /**/
+}
+
+.loginBtn {
+    width: 12rem;
+    height: 3rem;
+    flex-shrink: 0;
+    border-radius: 3.1875rem;
+    background: linear-gradient(90deg, #303030 51%, rgba(29, 27, 27, 0.37) 100%);
+    backdrop-filter: blur(12.399999618530273px);
+    color: white;
+    font-size: 1rem;
+}
+
+.logOutBtn {
+    width: 12rem;
+    height: 3rem;
+    flex-shrink: 0;
+    border-radius: 3.1875rem;
+    background: linear-gradient(90deg, #303030 51%, rgba(29, 27, 27, 0.37) 100%);
+    backdrop-filter: blur(12.399999618530273px);
+    color: white;
+    font-size: 1rem;
+}
+
+
