@@ -2,6 +2,8 @@ import React from "react";
 import Img from "../../common/Img";
 import ButtonComponent from "../../common/Button";
 import { useNavigate } from 'react-router-dom';
+// Styling
+import styles from './NavContainer.module.css';
 
 
 interface NavContainerProps {
@@ -30,31 +32,35 @@ const NavContainer: React.FC<NavContainerProps> = ({
     };
 
     return (
-        <div className="nav-container">
+        <div className={styles.navContainer}>
             <Img
                 source="public\photos\ballImg.png"
                 alt="Light purple abstract image that consist of several different sized round objects."
-                className="nav-container-img"
+                className={styles.navContainerImg}
                 id="nav-container-img-id" // Mieti tarvitaanko tätä oikeastaan ollenkaan.
             />
-            <ButtonComponent
-                name="btnNavContainerFirst"
-                type="button"
-                value="" // tarvitaanko navContainerissa?
-                className="nav-container-btn"
-                id="nav-container-btn-first-id" // tarvitaanko?
-                onClick={ handleFirstButtonClick }
-                text={buttonTextFirst}
-            />
-            <ButtonComponent
-                name="btnNavContainerSecond"
-                type="button"
-                value="" // tarvitaanko navContainerissa?
-                className="nav-container-btn"
-                id="nav-container-btn-second-id" // tarvitaanko?
-                onClick={ handleSecondButtonClick }
-                text={buttonTextSecond}
-            />
+            <div className={styles.btnContainer}>
+                <ButtonComponent
+                    name="btnNavContainerFirst"
+                    type="button"
+                    value="" // tarvitaanko navContainerissa?
+                    className={styles.navContainerBtnFirst}
+                    id="nav-container-btn-first-id" // tarvitaanko?
+                    onClick={handleFirstButtonClick}
+                    text={buttonTextFirst}
+                />
+                <ButtonComponent
+                    name="btnNavContainerSecond"
+                    type="button"
+                    value="" // tarvitaanko navContainerissa?
+                    className={styles.navContainerBtnSecond}
+                    id="nav-container-btn-second-id" // tarvitaanko?
+                    onClick={handleSecondButtonClick}
+                    text={buttonTextSecond}
+                />
+
+            </div>
+
         </div>
     );
 }
