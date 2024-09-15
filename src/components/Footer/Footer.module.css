@@ -1,25 +1,24 @@
 .FooterContainer {
-    padding: 30px 10px;
+    padding: 0px 60px;
+    padding-top: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
+    height: 30vh;
+    background-image: url("/public/photos/footerCover.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.logoFooter {
-
-}
 
 .navigationContainer {
     display: flex;
     flex-direction: row;
     gap: 50px;
-    padding-right: 50px;
 }
 
-.linkContainer {
 
-}
 
 .linkContainer h4 {
     font-weight: 400;
