@@ -2,6 +2,8 @@ import React from "react";
 import NavContainer from "../components/NavContainer/NavContainer";
 //TEst button styling
 import ButtonComponent from "../common/Button";
+import InputField from "../common/InputField";
+import Select from "../common/Select";
 
 const Home: React.FC = () => {
 
@@ -28,6 +30,24 @@ const Home: React.FC = () => {
         id="global-btn" // tarvitaanko?
         onClick={handle}
         text="This is a test button"
+      />
+      <h2>Test input</h2>
+      <InputField
+        name="Name"
+        type="text"
+        placeholder="testPlaceholder"
+        value="value"
+        className="inPutFieldClass"
+        id="global-input"
+        onChange={handle}
+      />
+      <h2>Test Select</h2>
+      <Select
+        name="name"
+        value="value"
+        className="selectClass"
+        id="global-select"
+        optionText="Helooo"
       />
     </div>
   );
