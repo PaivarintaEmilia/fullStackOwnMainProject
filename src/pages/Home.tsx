@@ -4,6 +4,8 @@ import NavContainer from "../components/NavContainer/NavContainer";
 import ButtonComponent from "../common/Button";
 import InputField from "../common/InputField";
 import Select from "../common/Select";
+// test supabase
+import TestData from "../components/testAddingDatatoDb"
 
 const Home: React.FC = () => {
 
@@ -51,6 +53,7 @@ const Home: React.FC = () => {
       />
 
       <h2>Test adding data</h2>
+      <TestData></TestData>
     </div>
   );
 };
