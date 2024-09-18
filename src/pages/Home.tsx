@@ -49,6 +49,8 @@ const Home: React.FC = () => {
         id="global-select"
         optionText="Helooo"
       />
+
+      <h2>Test adding data</h2>
     </div>
   );
 };

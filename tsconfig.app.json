@@ -18,7 +18,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Lisää Vite-tyypit */
+    "types": ["vite/client"]  // Tämä rivi lisätty
   },
   "include": ["src"]
 }
