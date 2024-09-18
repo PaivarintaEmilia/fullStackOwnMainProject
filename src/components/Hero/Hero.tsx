@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Hero.module.css";
-
+import ButtonComponent from "../../common/Button";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface HeroProps {
     heroTitle: string,
@@ -12,11 +13,17 @@ const Hero: React.FC<HeroProps> = ({
     titleTag
 }) => {
 
+    const navigate = useNavigate();
+    const location = useLocation(); // Hae nykyinen sijainti, jotta voidaan piilottaa button tarvittaessa.
+
     return (
         <div className={styles.HeroContainer}>
             <div className={styles.textContainer}>
                 <h1>{heroTitle}</h1>
                 <h2>{titleTag}</h2>
+                {location.pathname === '/' &&
+                    <ButtonComponent name={"heroBtn"} type={"button"} value={""} className={""} id={"global-btn"} text={"Check Balance"} onClick={() => navigate('/register') }></ButtonComponent>
+                }
             </div>
         </div>
     );
