@@ -1,5 +1,6 @@
 import React from "react";
 import NavContainer from "../components/NavContainer/NavContainer";
+import Hero from "../components/Hero/Hero";
 //TEst button styling
 import ButtonComponent from "../common/Button";
 import InputField from "../common/InputField";
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
 
   return (
     <div>
+      <Hero heroTitle={"Expense Tracker"} titleTag={"Welcome to track your income and expenses to better your budgeting."}></Hero>
       <h1>Home Page</h1>
       <NavContainer
         navigateToFirstRoute="/balance"

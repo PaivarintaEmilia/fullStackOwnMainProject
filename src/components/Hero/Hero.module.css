@@ -1,0 +1,27 @@
+.HeroContainer {
+    border: 3px solid red;
+    width: 100%;
+    height: 80vh; /* Poista tämä, koska todennäköisesti määritetään erikseen joka näytöllä sopiva korkeus */   
+    background-image: url("/public/photos/heroCover.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}
+
+.textContainer {
+    border: 3px solid rgb(60, 255, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.textContainer h1 {
+    font-size: 3rem;
+    font-weight: 500;
+}
+.textContainer h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
