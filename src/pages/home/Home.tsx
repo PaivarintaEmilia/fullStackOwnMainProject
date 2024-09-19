@@ -3,8 +3,6 @@ import NavContainer from "../../components/NavContainer/NavContainer";
 import Hero from "../../components/Hero/Hero";
 import TotalCards from "../../components/TotalCards/TotalCards";
 import AddForms from "../../components/AddEditForm/AddForms";
-// test supabase
-import TestData from "../../components/testAddingDatatoDb";
 // Styling
 import styles from "./Home.module.css";
 
@@ -34,8 +32,6 @@ const Home: React.FC = () => {
         buttonTextSecond="I don't go anywhere just yet"
       />
 
-      <h2>Test adding data</h2>
-      <TestData></TestData>
     </div>
   );
 };

@@ -22,3 +22,11 @@ h3 {
     align-content: center;
     gap: 50px;
 }
+
+.formBackground {
+    background-image: url("/public/photos/formBgCover.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 70px 0px;
+    border-radius: 0 0 25px 25px;
+}

@@ -1,5 +1,4 @@
 .totalCardsContainer {
-        background-color: brown;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -8,10 +7,3 @@
         padding: 80px 0px;
 }
 
-.addFormContainer {
-        background-image: url("/public/photos/formBgCover.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        padding: 70px 0px;
-        border-radius: 0 0 25px 25px;
-}
