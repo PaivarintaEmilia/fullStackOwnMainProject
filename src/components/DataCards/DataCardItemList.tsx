@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styles from "./DataCard.module.css";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from '@mui/icons-material/Edit';
 
 interface Item {
     id: number;
@@ -49,8 +51,8 @@ const DataCardItemList: React.FC = () => {
                         <h4>{item.name}</h4>
                         {hoveredItem === item.id && (
                             <div className={styles.itemOptionsContainer}>
-                                <button onClick={() => handleEdit(item.id)}>Edit</button>
-                                <button onClick={() => handleDelete(item.id)}>Delete</button>
+                                <button onClick={() => handleEdit(item.id)}><EditIcon /></button>
+                                <button onClick={() => handleDelete(item.id)}><DeleteIcon /></button>
                             </div>
                         )}
                     </div>

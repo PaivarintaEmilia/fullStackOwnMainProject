@@ -41,6 +41,7 @@
     display: flex;
     flex-direction: row;
     gap: 15px;
+    align-items: center;
 }
 
 .listItemContainer h4 {
@@ -53,5 +54,26 @@
 
 .itemOptionsContainer {
     align-self: baseline;
+}
+.itemOptionsContainer button{
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    color: #6145B4;
+    border: 1px solid #ffffff38;
+    background-color: rgba(0, 0, 0, 0.158);
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+    padding-top: 5px;
+}
+
+.itemOptionsContainer button:hover{
+    color: #8365dd;
+    border: 1px solid #ffffff38;
+    background-color: rgba(0, 0, 0, 0.692);
+    transition: background-color 2s ease-out;
 }
 
