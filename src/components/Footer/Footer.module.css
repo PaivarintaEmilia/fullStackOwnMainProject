@@ -1,11 +1,10 @@
 .FooterContainer {
-    padding: 0px 60px;
-    padding-top: 100px;
+    padding: 100px 60px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
-    height: 30vh;
+    height: 40vh;
     background-image: url("/public/photos/footerCover.png");
     background-size: cover;
     background-repeat: no-repeat;
