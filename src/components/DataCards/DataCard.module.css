@@ -1,6 +1,5 @@
 /* DataCard-component styling */
 .dataCardContainer {
-    width: 450px;
     background: linear-gradient(310deg, rgba(45, 45, 45, 0.70) 49.52%, rgba(124, 124, 124, 0.14) 100%);
     backdrop-filter: blur(11.550000190734863px);
     padding: 45px 25px;
