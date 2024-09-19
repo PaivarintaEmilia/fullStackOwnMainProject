@@ -1,0 +1,22 @@
+.mainContainer {
+    border: 3px solid red;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.heroContainer {
+    border: 3px solid rgb(0, 132, 255);
+    display: flex;
+    align-items: center;
+
+}
+
+.authenticationContainer {
+    border: 3px solid rgb(255, 0, 234);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 100px;
+
+}

@@ -1,7 +1,7 @@
 .HeroContainer {
     border: 1px solid rgb(60, 255, 0);
     width: 100%;
-    height: 80vh; /* Poista tämä, koska todennäköisesti määritetään erikseen joka näytöllä sopiva korkeus */   
+    height: 85vh; /* Poista tämä, koska todennäköisesti määritetään erikseen joka näytöllä sopiva korkeus */   
     background-image: url("/public/photos/heroCover.png");
     background-position: center;
     background-size: contain;

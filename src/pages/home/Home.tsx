@@ -23,8 +23,6 @@ const Home: React.FC = () => {
       <div className={styles.addFormContainer}>
         <AddForms />
       </div>
-
-
       <NavContainer
         navigateToFirstRoute="/balance"
         navigateToSecondRoute="/contact"

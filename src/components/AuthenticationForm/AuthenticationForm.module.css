@@ -1,0 +1,25 @@
+.authenticationFormContainer {
+    background-color: #4747475b;
+    border: 1px solid #8365dd;
+    border-radius: 10px;
+    padding: 50px;
+    width: 100%;
+}
+
+.googleBtn {
+    background-color: rgba(0, 0, 0, 0);
+    width: 12rem;
+    height: 3rem;
+    flex-shrink: 0;
+    border-radius: 3.1875rem;
+    border: 1px solid #8365dd;
+    backdrop-filter: blur(12.399999618530273px);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.googleBtn:hover {
+    background-color: rgba(0, 0, 0, 0.404);
+    transition: background-color 0.5s ease-in-out;
+}

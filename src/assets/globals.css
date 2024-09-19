@@ -30,6 +30,7 @@ body {
     backdrop-filter: blur(12.399999618530273px);
     color: white;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 #global-input {
