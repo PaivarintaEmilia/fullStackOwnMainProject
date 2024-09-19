@@ -1,0 +1,23 @@
+.singleCard {
+    border: 1px solid greenyellow;
+    padding: 50px;
+    width: 10rem; 
+    background: linear-gradient(313deg, rgba(44.62, 44.62, 44.62, 0.70) 65%, rgba(124.31, 124.31, 124.31, 0.14) 100%); 
+    border-radius: 10px; 
+    backdrop-filter: blur(23.10px); 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+    display: inline-flex;
+}
+
+.singleCard h2 {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.singleCard p {
+    font-weight: 300;
+    font-size: 1rem;
+}

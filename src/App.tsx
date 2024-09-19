@@ -1,6 +1,6 @@
 import React from "react";
 // testaukseen
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importoidaan reitityskomponentit
 import Balance from './pages/Balance';
 import Header from "./components/Header/Header";

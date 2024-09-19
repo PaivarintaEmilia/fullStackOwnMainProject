@@ -2,19 +2,23 @@ import React from "react";
 
 
 interface SelectProps {
-    name: string,
-    value: string,
-    className: string,
-    id: string,
-    optionText: string,
+    options: { value: string; label: string }[];
+    onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    placeholder: string;
+    id: string;
 }
 
 
-const Select: React.FC<SelectProps> = ({ name, value, className, id, optionText }) => {
+const Select: React.FC<SelectProps> = ({ options, onChange, placeholder, id }) => {
 
     return (
-        <select name={name} id={id} className={className}>
-            <option value={value}>{optionText}</option>
+        <select onChange={onChange} defaultValue="" id={id}>
+            <option value="" disabled selected>{placeholder}</option>
+            {options.map(option => (
+                <option key={option.value} value={option.value}>
+                    {option.label}
+                </option>
+            ))}
         </select>
     );
 }
