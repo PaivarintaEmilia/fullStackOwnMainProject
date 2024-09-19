@@ -1,9 +1,11 @@
 .totalCardsContainer {
+        background-color: brown;
         width: 100%;
         display: flex;
         flex-direction: row;
         gap: 35px;
         justify-content: center;
+        padding: 80px 0px;
 }
 
 .addFormContainer {
