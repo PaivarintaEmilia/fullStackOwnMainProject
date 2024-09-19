@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from "./DataCard.module.css";
 
 interface Item {
     id: number;
@@ -40,16 +41,21 @@ const DataCardItemList: React.FC = () => {
                     key={item.id}
                     onMouseEnter={() => handleMouseEnter(item.id)}
                     onMouseLeave={handleMouseLeave}
-                    style={{ position: 'relative', padding: '10px', border: '1px solid #ccc', margin: '5px 0' }}
+                    className={styles.listItemContainer}
                 >
-                    <h4>{item.name}</h4>
+                    <div className={styles.itemTitleOptionContainer}>
+
+
+                        <h4>{item.name}</h4>
+                        {hoveredItem === item.id && (
+                            <div className={styles.itemOptionsContainer}>
+                                <button onClick={() => handleEdit(item.id)}>Edit</button>
+                                <button onClick={() => handleDelete(item.id)}>Delete</button>
+                            </div>
+                        )}
+                    </div>
                     <p>{item.amount}€</p>
-                    {hoveredItem === item.id && (
-                        <div style={{ position: 'absolute', right: '10px', top: '10px' }}>
-                            <button onClick={() => handleEdit(item.id)}>Edit</button>
-                            <button onClick={() => handleDelete(item.id)}>Delete</button>
-                        </div>
-                    )}
+
                 </div>
             ))}
         </div>

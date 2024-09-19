@@ -1,0 +1,58 @@
+/* DataCard-component styling */
+.dataCardContainer {
+    width: 450px;
+    background: linear-gradient(310deg, rgba(45, 45, 45, 0.70) 49.52%, rgba(124, 124, 124, 0.14) 100%);
+    backdrop-filter: blur(11.550000190734863px);
+    padding: 45px 25px;
+    border-radius: 10px;
+}
+
+.cardHeroContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.cardHeroContainer h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.cardHeroContainer p {
+    font-size: 1.2rem;
+}
+
+
+/* DataCardItemList-component styling */
+
+.listItemContainer {
+    padding: 10px; 
+    border-bottom: 1px solid #ffffff63; 
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.itemTitleOptionContainer {
+    /* Tähän tulee h4 ja hoverItem. Keksi parempi nimi */
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.listItemContainer h4 {
+    display: inline-block;
+}
+
+.listItemContainer p {
+    display: inline-block;
+}
+
+.itemOptionsContainer {
+    align-self: baseline;
+}
+

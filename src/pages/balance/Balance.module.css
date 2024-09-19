@@ -1,0 +1,14 @@
+.dataCardsContainer {
+    border: 3px solid  red;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 25px;
+    padding: 50px;
+}
+
+h2 {
+    padding: 50px;
+    padding-bottom: 0px;
+}
