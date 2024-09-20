@@ -30,7 +30,7 @@ const Header: React.FC = () => {
     return (
         <div className={styles.headerContainer}>
             <Img
-                source="public\photos\Logo.png"
+                source="/photos/Logo.png"
                 alt="LogoIpsum logo for the Project."
                 className={styles.logo}
                 id="nav-container-img-id" // Mieti tarvitaanko tätä oikeastaan ollenkaan.
