@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonComponent from '../../common/Button';
 import InputField from '../../common/InputField';
 import style from "./AuthenticationForm.module.css";
-
+import { useNavigate } from 'react-router-dom';
 
 interface AuthenticateFormProps {
     title: string,
@@ -15,6 +15,9 @@ const AuthenticationForm: React.FC<AuthenticateFormProps> = ({
     passwordPlaceholder,
     submitForm
 }) => {
+
+    const navigate = useNavigate();
+
     return (
         <div className={style.authenticationFormContainer}>
             <form onSubmit={submitForm}>
@@ -49,9 +52,7 @@ const AuthenticationForm: React.FC<AuthenticateFormProps> = ({
                     className={''}
                     id={'global-btn'}
                     text={'Login'}
-                    onClick={function (): void {
-                        throw new Error('Function not implemented.');
-                    }} />
+                    onClick={() => navigate('/home') } />
                 <ButtonComponent
                     name={''}
                     type={'button'}

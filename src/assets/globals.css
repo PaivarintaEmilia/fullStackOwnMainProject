@@ -22,8 +22,8 @@ body {
 
 /* Global main styling of a button. Use modules classNames to different styling options. */
 #global-btn {
-    width: 12rem;
-    height: 3rem;
+    width: 9rem;
+    height: 2.5rem;
     flex-shrink: 0;
     border-radius: 3.1875rem;
     background: linear-gradient(90deg, #6145B4 51%, rgba(97, 69, 180, 0.37) 100%);

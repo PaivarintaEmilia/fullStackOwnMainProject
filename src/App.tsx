@@ -15,10 +15,9 @@ const App: React.FC = () => {
       <Router> {/* Router-komponentti määrittää reitityksen juuren */}
         <Header />
         <Routes> {/* Routes-konteineri sisältää yksittäiset reitit */}
-          <Route path="/" element={<Home />} /> {/* Oletusreitti HomePage-komponentille*/}
+          <Route path="/" element={<Authentication />} /> {/* Oletusreitti Authentication-komponentille*/}
+          <Route path="/home" element={<Home />} /> {/* Oletusreitti HomePage-komponentille*/}
           <Route path="/balance" element={<Balance />} /> {/* Reitti Balance-komponentille */}
-          <Route path="/login" element={<Authentication />} /> 
-          <Route path="/register" element={<Authentication />} /> 
         </Routes>
         <Footer />
       </Router>

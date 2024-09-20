@@ -1,5 +1,4 @@
 .dataCardsContainer {
-    border: 3px solid  red;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -8,7 +7,9 @@
     padding: 50px;
 }
 
-h2 {
+.balanceTitle {
     padding: 50px;
     padding-bottom: 0px;
+    font-size: 2rem;
+    font-weight: 600;
 }
