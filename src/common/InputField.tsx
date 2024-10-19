@@ -8,13 +8,13 @@ interface InputFieldProps {
     value: string,
     className: string,
     id: string,
-    onChange: () => void,
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void, // Huomaa e:n tyypitys, koska onChange odottaa parametrejä, kun sitä käytetään
 }
 
 
 const InputField: React.FC<InputFieldProps> = ({ name, type, placeholder, value, className, id, onChange}) => {
 
-    return <input name={name} type={type} placeholder={placeholder} value={value} className={className} id={id} onClick={onChange} />
+    return <input name={name} type={type} placeholder={placeholder} value={value} className={className} id={id} onChange={onChange} />
 }
 
 export default InputField;
