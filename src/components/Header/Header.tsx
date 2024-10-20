@@ -14,15 +14,15 @@ const Header: React.FC = () => {
     const location = useLocation(); // Hae nykyinen sijainti
 
     const navigateLogin = () => {
-        navigate('/login'); 
-    };    
-    
+        navigate('/login');
+    };
+
     const navigateRegister = () => {
-        navigate('/register'); 
-    };    
-    
+        navigate('/register');
+    };
+
     const navigateLogout = () => {
-        navigate('/logout'); 
+        navigate('/logout');
     };
 
 
@@ -36,38 +36,40 @@ const Header: React.FC = () => {
                 id="nav-container-img-id" // Mieti tarvitaanko tätä oikeastaan ollenkaan.
             />
             <div className={styles.btnContainer}>
-                {location.pathname !== '/register' &&
-                <ButtonComponent
-                    name="register"
-                    type="button"
-                    value="" // tarvitaanko navContainerissa?
-                    className={styles.registerBtn}
-                    id="global-btn"
-                    onClick={navigateLogin}
-                    text="Register"
-                /> 
+                {location.pathname == '/login' &&
+                    <ButtonComponent
+                        name="register"
+                        type="button"
+                        value="" // tarvitaanko navContainerissa?
+                        className={styles.registerBtn}
+                        id="global-btn"
+                        onClick={navigateLogin}
+                        text="Register"
+                    />
                 }
-                <ButtonComponent
-                    name="Login"
-                    type="button"
-                    value="" // tarvitaanko navContainerissa?
-                    className={styles.loginBtn}
-                    id=""
-                    onClick={navigateRegister}
-                    text="Login"
-                />                
-                <ButtonComponent
-                    name="Logout"
-                    type="button"
-                    value="" // tarvitaanko navContainerissa?
-                    className={styles.logOutBtn}
-                    id="logOutHidden"
-                    onClick={navigateLogout}
-                    text="Logout"
-                />
-
+                {location.pathname == '/register' && // Näytetään vaan /register pagessa
+                    <ButtonComponent
+                        name="Login"
+                        type="button"
+                        value="" // tarvitaanko navContainerissa?
+                        className={styles.loginBtn}
+                        id=""
+                        onClick={navigateRegister}
+                        text="Login"
+                    />
+                }
+                {!(location.pathname === '/login' || location.pathname === '/register') &&
+                    <ButtonComponent
+                        name="Logout"
+                        type="button"
+                        value="" // tarvitaanko navContainerissa?
+                        className={styles.logOutBtn}
+                        id="logOutHidden"
+                        onClick={navigateLogout}
+                        text="Logout"
+                    />
+                }
             </div>
-
         </div>
     );
 }
