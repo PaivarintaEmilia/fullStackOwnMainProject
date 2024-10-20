@@ -17,12 +17,12 @@ const Register: React.FC = () => {
         const submitForm = async (event: React.FormEvent) => {
             event.preventDefault();
         
-            const signInData = {
+            const registerData = {
                 username,
                 password
             };
     
-            console.log("SignInData: ", signInData);
+            console.log("SignInData: ", registerData);
         
             try {
                 const response = await fetch('http://127.0.0.1:8000/register', {
@@ -32,7 +32,7 @@ const Register: React.FC = () => {
                         'Cache-Control': 'no-cache',
                         'Accept': '*/*',
                     },
-                    body: JSON.stringify(signInData),
+                    body: JSON.stringify(registerData),
                 });
         
                 if (!response.ok) {
@@ -49,7 +49,7 @@ const Register: React.FC = () => {
   return (
     <div className={style.mainContainer}>
       <div className={style.heroContainer}>
-        <Hero heroTitle={'Expense Tracker'} titleTag={'SignIn or create a new user from Register-route.'} />
+        <Hero heroTitle={'Expense Tracker'} titleTag={'Register to the app.'} />
       </div>
       <div className={style.authenticationContainer}>
         <AuthenticationForm 

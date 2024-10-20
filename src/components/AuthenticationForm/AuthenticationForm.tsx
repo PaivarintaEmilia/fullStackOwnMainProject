@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ButtonComponent from '../../common/Button';
 import InputField from '../../common/InputField';
 import style from "./AuthenticationForm.module.css";
 
 interface AuthenticateFormProps {
     title: string,
-    onSubmit: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    onSubmit: (event: React.FormEvent) => Promise<void>, // Tämä tyypitys, koska onSubmitissa on tämänlaisen argumentin vastaan
     onChangeUsername: (e: React.ChangeEvent<HTMLInputElement>) => void,
     onChangePassword: (e: React.ChangeEvent<HTMLInputElement>) => void,
     valueUsername: string,
