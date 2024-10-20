@@ -12,9 +12,7 @@ const Authentication: React.FC = () => {
       <div className={style.authenticationContainer}>
         <AuthenticationForm 
           title={'Login'} 
-          onClick={function (): void {
-          throw new Error('Ylimääräinen onClick-funktio toisessa painikkeessa. Tätä voisi katsoa TODO!');
-        } } />
+         />
       </div>
 
       

@@ -6,55 +6,52 @@ import { useNavigate } from 'react-router-dom';
 
 interface AuthenticateFormProps {
     title: string,
-    onClick: () => void,
 }
 
 const AuthenticationForm: React.FC<AuthenticateFormProps> = ({
     title,
-    onClick,
 }) => {
 
     // Tilamuuttujat, usernamen ja passwordin käyttöön
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
 
     // Navigointi
     const navigate = useNavigate();
 
     // submitform-funktio, kun lähetetään username ja password backendille
     const submitForm = async (event: React.FormEvent) => {
-        // Estä sivun uudelleenlataus, mikä on formien normaalitoiminta
         event.preventDefault();
-
-        // Luodaan JSON-muotoinen data
+    
         const signInData = {
             username,
             password
-        }
+        };
 
+        console.log("SignInData: ", signInData);
+    
         try {
-            // Post-request /register-routeen. Lisätään tiedot tietokantaan
-            const response = await fetch('https://backendexpensetracker.mariaemilia-paivarinta.workers.dev/register', {
+            const response = await fetch('http://localhost:3000/register', {
                 method: 'POST',
                 headers: {
-                    'content-Type': 'application/json',
+                    'Content-Type': 'application/json', // Oikea kirjoitusasu
+                    'Cache-Control': 'no-cache',
+                    'Accept': '*/*',
                 },
                 body: JSON.stringify(signInData),
             });
-
+    
             if (!response.ok) {
                 throw new Error('Back-end -yhteydessä on ongelma.');
             }
-
-            // jos rekisteröinti on ok niin navigoidaan /home-pagelle
-            navigate('/home');
-
+    
+            navigate('/home'); // Navigoi, jos rekisteröinti onnistuu
+    
         } catch (error) {
             console.error("Virhe /register-routen post-requestissa:", error);
         }
-
-
     };
+    
 
     return (
         <div className={style.authenticationFormContainer}>
@@ -75,7 +72,7 @@ const AuthenticationForm: React.FC<AuthenticateFormProps> = ({
                     placeholder='Create password'
                     value={password}
                     className=''
-                    id='global-input'
+                    id='global-input' // TODO: ei voi olla kahta komponenttia samalla id:llä.
                     onChange={(e) => setPassword(e.target.value)}
                 />
 
@@ -86,7 +83,7 @@ const AuthenticationForm: React.FC<AuthenticateFormProps> = ({
                     className=''
                     id='global-btn'
                     text='Login'
-                    onClick={onClick} />
+                    onClick={() => console.log("Todo määritä tämä myöhemmin tai muokkaa niin ettei tarvita.")} />
                 <ButtonComponent
                     name=''
                     type='button'

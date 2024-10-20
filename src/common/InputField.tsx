@@ -7,7 +7,7 @@ interface InputFieldProps {
     placeholder: string,
     value: string,
     className: string,
-    id: string,
+    id: string, 
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void, // Huomaa e:n tyypitys, koska onChange odottaa parametrejä, kun sitä käytetään
 }
 
