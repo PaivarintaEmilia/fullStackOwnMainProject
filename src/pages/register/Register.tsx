@@ -17,33 +17,27 @@ const Register: React.FC = () => {
         const submitForm = async (event: React.FormEvent) => {
             event.preventDefault();
         
-            const signInData = {
+            const registerData = {
                 username,
                 password
             };
     
-            console.log("SignInData: ", signInData);
+            console.log("SignInData: ", registerData);
         
             try {
-                const response = await fetch('http://127.0.0.1:8000/login', {
+                const response = await fetch('http://127.0.0.1:8000/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json', // Oikea kirjoitusasu
-                        //'Cache-Control': 'no-cache',
-                        //'Accept': '*/*',
+                        'Cache-Control': 'no-cache',
+                        'Accept': '*/*',
                     },
-                    body: JSON.stringify(signInData),
+                    body: JSON.stringify(registerData),
                 });
         
                 if (!response.ok) {
                     throw new Error('Back-end -yhteydessä on ongelma.');
                 }
-
-                // Odotetaan vastaukseksi tokenia
-                const { token } = await response.json();
-
-                // Tallennetaan token local storageen
-                localStorage.setItem('jwt', token);
         
                 navigate('/home'); // Navigoi, jos rekisteröinti onnistuu
         
@@ -55,15 +49,15 @@ const Register: React.FC = () => {
   return (
     <div className={style.mainContainer}>
       <div className={style.heroContainer}>
-        <Hero heroTitle={'Expense Tracker'} titleTag={'Sign in to the app.'} />
+        <Hero heroTitle={'Expense Tracker'} titleTag={'Register to the app.'} />
       </div>
       <div className={style.authenticationContainer}>
         <AuthenticationForm 
-          title={'Login'} 
+          title={'Register'} 
           onSubmit={submitForm}
           onChangeUsername={(e) => setUsername(e.target.value)}
           onChangePassword={(e) => setPassword(e.target.value)}
-          text='Login'
+          text='Register'
           valuePassword={password}
           valueUsername={username}
          />

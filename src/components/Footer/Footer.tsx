@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
     return (
         <div className={styles.FooterContainer}>
             <Img
-                source="public\photos\Logo.png"
+                source="/photos/Logo.png"
                 alt="LogoIpsum logo for the Project."
                 className={styles.logoFooter}
                 id="nav-container-img-id" // Mieti tarvitaanko tätä oikeastaan ollenkaan.
@@ -39,10 +39,10 @@ const Footer: React.FC = () => {
                 </div>                
                 <div className={styles.linkContainer}>
                     <h4>Linklist</h4>
-                    <a href="/">Home</a>
+                    <a href="/home">Home</a>
                     <a href="/balance">Balance</a>
                     <a href="/logout">LogOut</a>
-                    <a href="#">Documentation</a>
+                    <a href="https://fullstackdoc.onrender.com/">Documentation</a>
                 </div>
             </div>
         </div>
