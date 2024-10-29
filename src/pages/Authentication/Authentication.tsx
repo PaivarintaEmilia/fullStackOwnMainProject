@@ -41,12 +41,14 @@ const Register: React.FC = () => {
                 }
 
                 // Odotetaan vastaukseksi tokenia
-                const { token } = await response.json();
+                const { token, user_id } = await response.json();
 
                 console.log("Token: ", token)
+                console.log("user_id: ", user_id)
 
                 // Tallennetaan token local storageen
                 localStorage.setItem('jwt', token);
+                localStorage.setItem('user_id', user_id);
         
                 navigate('/home'); // Navigoi, jos rekisteröinti onnistuu
         
