@@ -15,6 +15,7 @@ const Register: React.FC = () => {
     
         // submitform-funktio, kun lähetetään username ja password backendille
         const submitForm = async (event: React.FormEvent) => {
+            // Estetään sivun automaattinen päivitys, mikä tapahtuu normaalisti form-elementin kanssa
             event.preventDefault();
         
             const signInData = {
@@ -25,7 +26,7 @@ const Register: React.FC = () => {
             console.log("SignInData: ", signInData);
         
             try {
-                const response = await fetch('http://127.0.0.1:8000/login', {
+                const response = await fetch('http://127.0.0.1:5000/users/postgres', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json', // Oikea kirjoitusasu
@@ -40,10 +41,14 @@ const Register: React.FC = () => {
                 }
 
                 // Odotetaan vastaukseksi tokenia
-                const { token } = await response.json();
+                const { token, user_id } = await response.json();
+
+                console.log("Token: ", token)
+                console.log("user_id: ", user_id)
 
                 // Tallennetaan token local storageen
                 localStorage.setItem('jwt', token);
+                localStorage.setItem('user_id', user_id);
         
                 navigate('/home'); // Navigoi, jos rekisteröinti onnistuu
         

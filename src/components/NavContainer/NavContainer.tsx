@@ -34,7 +34,7 @@ const NavContainer: React.FC<NavContainerProps> = ({
     return (
         <div className={styles.navContainer}>
             <Img
-                source="public\photos\ballImg.png"
+                source="/photos/ballImg.png"
                 alt="Light purple abstract image that consist of several different sized round objects."
                 className={styles.navContainerImg}
                 id="nav-container-img-id" // Mieti tarvitaanko tätä oikeastaan ollenkaan.
