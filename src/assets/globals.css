@@ -58,8 +58,14 @@ body {
     border: 2px solid #383838; /* Oletusreunusväri */
     transition: border-color 0.3s ease-in-out; /* Siirtymä reunusvärille */
     outline: none; /* Poistaa oletustyylin focus-tilassa */
+    color: rgb(138, 138, 138);
 }
 
 #global-select:focus {
     border-color: #6145b49f; /* Reunusväri focus-tilassa */
 }
+
+#global-select::placeholder {
+    color: white; /* Placeholderin väri */
+}
+
