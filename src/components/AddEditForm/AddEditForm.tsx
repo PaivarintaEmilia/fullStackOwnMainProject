@@ -12,6 +12,7 @@ interface AddEditFormProps {
     buttonText: string;
     noteChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     amountChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    selectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
     onButtonClick: () => void;
     onSubmit: (e: React.FormEvent) => Promise<void>;
 }
@@ -25,12 +26,12 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
     buttonText,
     noteChange,
     amountChange,
+    selectChange,
     onButtonClick,
     onSubmit,
 }) => {
 
     /* Select komponentin toiminnot, koska nämä pysyvät samana lomakkeelta toiselle*/
-    const [selectedOption, setSelectedOption] = useState('');
 
     // Options tilan alustaminen
     const [options, setOptions] = useState<{ category_id: number; category_name: string }[]>([]); 
@@ -80,10 +81,9 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
     }, []);
 
 
-    const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedOption(e.target.value);
-        console.log("Selected option: " + selectedOption);
-    };
+
+
+
 
 
 
@@ -108,7 +108,7 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
                     {formTitle !== "Income" &&
                         <Select
                             options={options}
-                            onChange={handleSelect}
+                            onChange={selectChange}
                             placeholder={"Choose Expense Category"}
                             id="global-select"
                         />

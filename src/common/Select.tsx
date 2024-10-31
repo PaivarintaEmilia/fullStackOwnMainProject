@@ -3,7 +3,7 @@ import React from "react";
 
 interface SelectProps {
     options: { category_id: number; category_name: string }[];
-    onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
     placeholder: string;
     id: string;
 }
