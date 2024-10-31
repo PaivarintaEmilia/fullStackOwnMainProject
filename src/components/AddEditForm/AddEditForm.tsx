@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonComponent from "../../common/Button";
 import InputField from "../../common/InputField";
 import Select from "../../common/Select";
@@ -10,10 +10,11 @@ interface AddEditFormProps {
     amountName: string;
     amountValue: string;
     buttonText: string;
-    noteChange: () => void;
-    amountChange: () => void;
+    noteChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    amountChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    selectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
     onButtonClick: () => void;
-    submitForm: () => void;
+    onSubmit: (e: React.FormEvent) => Promise<void>;
 }
 
 const AddEditForm: React.FC<AddEditFormProps> = ({
@@ -25,24 +26,65 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
     buttonText,
     noteChange,
     amountChange,
+    selectChange,
     onButtonClick,
-    submitForm,
+    onSubmit,
 }) => {
 
     /* Select komponentin toiminnot, koska nämä pysyvät samana lomakkeelta toiselle*/
-    const [selectedOption, setSelectedOption] = useState('');
+
+    // Options tilan alustaminen
+    const [options, setOptions] = useState<{ category_id: number; category_name: string }[]>([]); 
 
 
-    const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedOption(e.target.value);
-        console.log("Selected option: " + selectedOption);
-    };
+    // Luodaan useEffect, joka ajetaan kerran sivuston latautuessa. 
+    // Tällä haetaan tarvittavat tiedot select-komponentin Category-listausta varten
+    useEffect(() => {
 
-    const options = [
-        { value: 'option1', label: 'Category 1' },
-        { value: 'option2', label: 'Category 1' },
-        { value: 'option3', label: 'Category 1' },
-    ];
+        // Haetaan categories back-endin puolelta
+        const fetchCategories = async () => {
+
+            // Haetaan user_id localStoragesta
+            const userId = localStorage.getItem('user_id');
+
+            // Otetaan yhteys back-endiin
+            if (userId) {
+                try {
+
+                    const response = await fetch(`http://127.0.0.1:5000/expensecategory/postgres/${userId}`, { 
+                        method: 'GET',
+                        headers: {
+                          'Content-Type': 'application/json', 
+                        },
+                    });
+
+                    if (!response.ok) {
+                        throw new Error("Categories fetching failed.");
+                    }
+
+                    // Otetaan back-endin vastaus talteen
+                    const data = await response.json();
+
+                    // Muutetaan data oikeaan muotoon
+                    setOptions(data["Category_listing"].map((category: {categoryId: number; categoryName: string }) => ({
+                        category_id: category.categoryId,
+                        category_name: category.categoryName
+                    })));
+
+                } catch (error) {
+                    console.error("Error connecting to database and fetching categories: ", error);
+                }
+            }
+        };
+
+        fetchCategories();
+    }, []);
+
+
+
+
+
+
 
 
 
@@ -51,7 +93,7 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
 
             <div >
 
-                <form onSubmit={submitForm}>
+                <form onSubmit={onSubmit}>
                     <h3>{formTitle}</h3>
                     <InputField
                         name={noteName}
@@ -60,15 +102,18 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
                         value={noteValue}
                         className={""}
                         id={"global-input"}
-                        onChange={() => { noteChange }}
+                        onChange={noteChange}
                     />
-                    {/* TODO: Select tulee piilottaa tietyissä tapauksissa. Määrittele tämä myöhemmin. */}
-                    <Select
-                        options={options}
-                        onChange={handleSelect}
-                        placeholder={"Choose Expense Category"}
-                        id="global-select"
-                    />
+                    {/* TODO: Select tulee piilottaa tietyissä tapauksissa. Määrittele tämä myöhemmin. TOIMII */}
+                    {formTitle !== "Income" &&
+                        <Select
+                            options={options}
+                            onChange={selectChange}
+                            placeholder={"Choose Expense Category"}
+                            id="global-select"
+                        />
+                    }
+
                     <InputField
                         name={amountName}
                         type={"number"}
@@ -76,7 +121,7 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
                         value={amountValue}
                         className={""}
                         id={"global-input"}
-                        onChange={() => { amountChange }}
+                        onChange={amountChange}
                     />
                     <ButtonComponent
                         name={""}
