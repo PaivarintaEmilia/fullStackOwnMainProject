@@ -98,7 +98,7 @@ const AddForms: React.FC<AddFormsProps> = ({
                     amountName={"income_amount"} 
                     amountValue={incomeAmount !== undefined ? incomeAmount.toString() : ""} // Muutetaan takaisin string-muoton. Jos ei ole undefined tämä on määritetty arvo 
                     buttonText={"Add Income"} 
-                    noteChange={(e) => setIncomeNote(e.target.value)} 
+                    noteChange={handleNoteChange} 
                     amountChange={handleAmountChange} 
                     onButtonClick={function (): void {
                     throw new Error("Function not implemented."); // Tarvitaanko tätä??

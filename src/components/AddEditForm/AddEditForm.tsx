@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonComponent from "../../common/Button";
 import InputField from "../../common/InputField";
 import Select from "../../common/Select";
@@ -32,17 +32,59 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
     /* Select komponentin toiminnot, koska nämä pysyvät samana lomakkeelta toiselle*/
     const [selectedOption, setSelectedOption] = useState('');
 
+    // Options tilan alustaminen
+    const [options, setOptions] = useState<{ category_id: number; category_name: string }[]>([]); 
+
+
+    // Luodaan useEffect, joka ajetaan kerran sivuston latautuessa. 
+    // Tällä haetaan tarvittavat tiedot select-komponentin Category-listausta varten
+    useEffect(() => {
+
+        // Haetaan categories back-endin puolelta
+        const fetchCategories = async () => {
+
+            // Haetaan user_id localStoragesta
+            const userId = localStorage.getItem('user_id');
+
+            // Otetaan yhteys back-endiin
+            if (userId) {
+                try {
+
+                    const response = await fetch(`http://127.0.0.1:5000/expensecategory/postgres/${userId}`, { 
+                        method: 'GET',
+                        headers: {
+                          'Content-Type': 'application/json', 
+                        },
+                    });
+
+                    if (!response.ok) {
+                        throw new Error("Categories fetching failed.");
+                    }
+
+                    // Otetaan back-endin vastaus talteen
+                    const data = await response.json();
+
+                    // Muutetaan data oikeaan muotoon
+                    setOptions(data["Category_listing"].map((category: {categoryId: number; categoryName: string }) => ({
+                        category_id: category.categoryId,
+                        category_name: category.categoryName
+                    })));
+
+                } catch (error) {
+                    console.error("Error connecting to database and fetching categories: ", error);
+                }
+            }
+        };
+
+        fetchCategories();
+    }, []);
+
 
     const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedOption(e.target.value);
         console.log("Selected option: " + selectedOption);
     };
 
-    const options = [
-        { category_id: 1, category_name: 'Category 1' },
-        { category_id: 2, category_name: 'Category 2' },
-        { category_id: 3, category_name: 'Category 3' },
-    ];
 
 
 
