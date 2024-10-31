@@ -10,10 +10,10 @@ interface AddEditFormProps {
     amountName: string;
     amountValue: string;
     buttonText: string;
-    noteChange: () => void;
-    amountChange: () => void;
+    noteChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    amountChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onButtonClick: () => void;
-    submitForm: () => void;
+    onSubmit: (e: React.FormEvent) => Promise<void>;
 }
 
 const AddEditForm: React.FC<AddEditFormProps> = ({
@@ -26,7 +26,7 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
     noteChange,
     amountChange,
     onButtonClick,
-    submitForm,
+    onSubmit,
 }) => {
 
     /* Select komponentin toiminnot, koska nämä pysyvät samana lomakkeelta toiselle*/
@@ -39,9 +39,9 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
     };
 
     const options = [
-        { value: 'option1', label: 'Category 1' },
-        { value: 'option2', label: 'Category 1' },
-        { value: 'option3', label: 'Category 1' },
+        { category_id: 1, category_name: 'Category 1' },
+        { category_id: 2, category_name: 'Category 2' },
+        { category_id: 3, category_name: 'Category 3' },
     ];
 
 
@@ -51,7 +51,7 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
 
             <div >
 
-                <form onSubmit={submitForm}>
+                <form onSubmit={onSubmit}>
                     <h3>{formTitle}</h3>
                     <InputField
                         name={noteName}
@@ -60,15 +60,18 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
                         value={noteValue}
                         className={""}
                         id={"global-input"}
-                        onChange={() => { noteChange }}
+                        onChange={noteChange}
                     />
-                    {/* TODO: Select tulee piilottaa tietyissä tapauksissa. Määrittele tämä myöhemmin. */}
-                    <Select
-                        options={options}
-                        onChange={handleSelect}
-                        placeholder={"Choose Expense Category"}
-                        id="global-select"
-                    />
+                    {/* TODO: Select tulee piilottaa tietyissä tapauksissa. Määrittele tämä myöhemmin. TOIMII */}
+                    {formTitle !== "Income" &&
+                        <Select
+                            options={options}
+                            onChange={handleSelect}
+                            placeholder={"Choose Expense Category"}
+                            id="global-select"
+                        />
+                    }
+
                     <InputField
                         name={amountName}
                         type={"number"}
@@ -76,7 +79,7 @@ const AddEditForm: React.FC<AddEditFormProps> = ({
                         value={amountValue}
                         className={""}
                         id={"global-input"}
-                        onChange={() => { amountChange }}
+                        onChange={amountChange}
                     />
                     <ButtonComponent
                         name={""}
